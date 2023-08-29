@@ -30,6 +30,10 @@ namespace xadrez
             p.incrementarQtdMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
+            if(pecaCapturada != null)
+            {
+                capturadas.Add(pecaCapturada);
+            }
         }
         public void realizaJogada(Posicao origem, Posicao destino)
         {
@@ -69,6 +73,34 @@ namespace xadrez
                 jogadorAtual = Cor.Branca;
             }
         }
+      
+        public HashSet<Peca> pecasCapturadas(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();   
+            foreach(Peca x in capturadas)
+            {
+                if(x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+                return aux;
+            }
+
+        }
+        public HashSet<Peca> pecasEmJogo(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in pecas)
+            {
+                if (x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            aux.ExceptWith(pecasCapturadas(cor));
+            return aux; 
+        }
+        
         public void colocarNovaPeca(char coluna, int linha,Peca peca)
         {
             tab.colocarPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
