@@ -83,9 +83,8 @@ namespace xadrez
                 {
                     aux.Add(x);
                 }
-                return aux;
             }
-
+            return aux;
         }
         public HashSet<Peca> pecasEmJogo(Cor cor)
         {
@@ -110,7 +109,7 @@ namespace xadrez
 
         private void colocarPecas()
         {
-            colocarNovaPeca('c',1, new Torre(tab, Cor.Branca));
+            colocarNovaPeca('c', 1, new Torre(tab, Cor.Branca));
             colocarNovaPeca('c', 2, new Torre(tab, Cor.Branca));
             colocarNovaPeca('d', 2, new Torre(tab, Cor.Branca));
             colocarNovaPeca('d', 1, new Rei(tab, Cor.Branca));
