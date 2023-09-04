@@ -1,8 +1,9 @@
 using tabuleiro;
+using System;
 
 namespace xadrez{
-    class Peao : Peca
-    {
+    class Peao : Peca{
+
         public Peao(Tabuleiro tab, Cor cor) : base(tab,cor) { }
 
         public override string ToString()
