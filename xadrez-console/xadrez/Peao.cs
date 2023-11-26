@@ -24,7 +24,7 @@ namespace xadrez{
             bool[,] mat = new bool[tab.linhas, tab.colunas];
             Posicao pos = new Posicao(0, 0); 
 
-            if(cor== Cor.branca)
+            if(cor== Cor.Branca)
             {
                 pos.definirValores(posicao.linha - 1, posicao.coluna);
                 if(tab.posicaoValida(pos) && livre(pos))
@@ -32,7 +32,7 @@ namespace xadrez{
                     mat[pos.linha,pos.coluna] = true;
                 }
                 pos.definirValores(posicao.linha - 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                if (tab.posicaoValida(pos) && livre(pos) && qtdeMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -55,7 +55,7 @@ namespace xadrez{
                     mat[pos.linha, pos.coluna] = true;
                 }
                 pos.definirValores(posicao.linha + 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                if (tab.posicaoValida(pos) && livre(pos) && qtdeMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
