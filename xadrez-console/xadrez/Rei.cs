@@ -1,5 +1,6 @@
 ﻿using tabuleiro;
 using System;
+using System.Linq;
 
 namespace xadrez
 {
@@ -77,10 +78,10 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
             }
-            // #Jogada Especial Roque Pequeno
-
+            // #Jogada Especial Roque
             if (qtdeMovimentos == 0 && !partida.xeque)
             {
+                //Roque Pequeno
                 Posicao posT1 = new Posicao(posicao.linha, posicao.coluna + 3);
                 if (testeTorreParaRoque(posT1))
                 {
@@ -88,7 +89,19 @@ namespace xadrez
                     Posicao p2 = new Posicao(posicao.linha, posicao.coluna + 2);
                     if(tab.peca(p1)==null && tab.peca(p2) == null)
                     {
-                        mat[posicao.linha,posicao.coluna] = true;
+                        mat[posicao.linha,posicao.coluna + 2] = true;
+                    }
+                }
+                //Roque Grande
+                Posicao posT2 = new Posicao(posicao.linha, posicao.coluna - 4);
+                if (testeTorreParaRoque(posT2))
+                {
+                    Posicao p1 = new Posicao(posicao.linha, posicao.coluna - 1);
+                    Posicao p2 = new Posicao(posicao.linha, posicao.coluna - 2);
+                    Posicao p3 = new Posicao(posicao.linha, posicao.coluna - 3);
+                    if (tab.peca(p1) == null && tab.peca(p2) == null && tab.peca(p3) == null)
+                    {
+                        mat[posicao.linha, posicao.coluna - 2] = true;
                     }
                 }
             }
